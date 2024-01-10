@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Current Hour</title>
-  <script>
-    function updateHour() {
-      var currentHour = new Date().getHours();
-      document.getElementById("hour").innerHTML = currentHour;
-    }
-
-    // Initial call to display the current hour
-    updateHour();
-
-    // Update the hour every hour (3600000 milliseconds)
-    setInterval(updateHour, 5000);
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Display Text</title>
 </head>
 <body>
-  <h1>Current Hour:</h1>
-  <p id="hour"></p>
+
+<div id="content"></div>
+
+<script>
+    // Replace 'YOUR_SECOND_WEBSITE_URL' with the actual URL of your second website
+    const url = 'https://msbing-one.github.io/Finaljdjd/';
+
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerText = data;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
+
 </body>
 </html>
