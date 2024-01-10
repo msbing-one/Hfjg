@@ -16,7 +16,9 @@
     fetch(url)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('content').innerText = data;
+            // Extract text content from the HTML
+            const textContent = new DOMParser().parseFromString(data, 'text/html').body.textContent;
+            document.getElementById('content').innerText = textContent;
         })
         .catch(error => {
             console.error('Error fetching data:', error);
